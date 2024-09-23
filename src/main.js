@@ -14,7 +14,7 @@ const input = document.querySelector('input[name="searchQuery"]');
 const loadMoreBtn = document.querySelector('.btn-load-more');
 
 form.addEventListener('submit', onSearch);
-loadMoreBtn.addEventListener('click', onLoadMore);
+loadMoreBtn.addEventListener('click', onLoadMorePage);
 
 async function onSearch(event) {
 event.preventDefault();
@@ -38,7 +38,7 @@ addLoader(gallery);
 await fetchAndRenderImages();
 }
 
-async function onLoadMore() {
+async function onLoadMorePage() {
 currentPage += 1;
 addLoader(gallery);
 await fetchAndRenderImages();
@@ -79,7 +79,7 @@ async function fetchAndRenderImages() {
 }
 
 function scrollBar() {
-  const galleryItem = document.querySelector('.gallery a');
+  const galleryItem = document.querySelector('.gallery');
   if (galleryItem) {
     const { height: cardHeight } = galleryItem.getBoundingClientRect();
     window.scrollBy({
