@@ -1,4 +1,11 @@
 /* Styles for Mobile devices */
+body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+}
+
 .container {
   min-width: 320px;
   max-width: 375px;
