@@ -1,6 +1,9 @@
 .search-form {
     display: flex;
     justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 2;
     background-color: #fff;
     padding: 24px;
     gap: 8px;
@@ -27,16 +30,16 @@ input:hover {
 }
 
 input:focus {
-    border-color: #4e75ee
+    border-color: #4e75ee;
 }
 
-button {
+.btn-form {
     font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.04em;
-    background-color: #4D5AE5;  
-    cursor: pointer;
+    background-color: #4D5AE5;
+    color: #FFFFFF;
     width: 91px;
     height: 40px;
     border: none;
