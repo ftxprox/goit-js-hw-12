@@ -14,7 +14,7 @@ const input = document.querySelector('input[name="searchQuery"]');
 const loadMoreBtn = document.querySelector('.btn-load-more');
 
 form.addEventListener('submit', onSearch);
-loadMoreBtn.addEventListener('click', onLoadMorePage);
+loadMoreBtn.addEventListener('click', onLoadMore);
 
 async function onSearch(event) {
 event.preventDefault();
@@ -38,7 +38,7 @@ addLoader(gallery);
 await fetchAndRenderImages();
 }
 
-async function onLoadMorePage() {
+async function onLoadMore() {
 currentPage += 1;
 addLoader(gallery);
 await fetchAndRenderImages();
@@ -50,6 +50,7 @@ async function fetchAndRenderImages() {
         renderImages(data.hits);
 
         scrollBar(); 
+
         if (data.totalHits <= currentPage * 15) {
             toggleLoadMoreButton(false);
             iziToast.info({
@@ -74,12 +75,12 @@ async function fetchAndRenderImages() {
             titleColor: "white",
         });
     } finally {
-        hideLoading();
+        hideLoading(); 
     }
 }
 
 function scrollBar() {
-  const galleryItem = document.querySelector('.gallery');
+  const galleryItem = document.querySelector('.gallery a');
   if (galleryItem) {
     const { height: cardHeight } = galleryItem.getBoundingClientRect();
     window.scrollBy({
