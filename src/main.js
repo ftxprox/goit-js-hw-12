@@ -84,7 +84,7 @@ function scrollBar() {
   if (galleryItem) {
     const { height: cardHeight } = galleryItem.getBoundingClientRect();
     window.scrollBy({
-      top: cardHeight * 2, 
+      top: cardHeight * 2.6, 
       behavior: 'smooth',
     });
   }
