@@ -41,15 +41,14 @@ await fetchAndRenderImages();
 async function onLoadMore() {
 currentPage += 1;
 addLoader(gallery);
-await fetchAndRenderImages();
+    await fetchAndRenderImages();
+    scrollBar();
 }
 
 async function fetchAndRenderImages() {
     try {
         const data = await fetchImages(currentQuery, currentPage);
         renderImages(data.hits);
-
-        scrollBar(); 
 
         if (data.totalHits <= currentPage * 15) {
             toggleLoadMoreButton(false);
@@ -78,6 +77,7 @@ async function fetchAndRenderImages() {
         hideLoading(); 
     }
 }
+
 
 function scrollBar() {
   const galleryItem = document.querySelector('.gallery a');
